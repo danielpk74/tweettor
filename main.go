@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"github.com/danielpk74/tweettor/db"
+	"github.com/danielpk74/tweettor/handlers"
+	"log"
+)
 
 func main() {
-	fmt.Println("Hello there")
+	conn := db.Conn
+	if !conn.CheckConnection() {
+		log.Fatalln("MongoDB Server is not available.")
+		return
+	}
+	handlers.Handlers()
+
 }
