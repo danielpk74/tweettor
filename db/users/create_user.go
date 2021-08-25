@@ -18,7 +18,7 @@ func CreateUser(u *models.User) (string, bool, error) {
 	defer cancel()
 
 	u.Password, _ = EncryptPassword(u.Password)
-	result, err := db.Conn.TweetorCollection("users").InsertOne(ctx, u)
+	result, err := db.Conn.TweettorCollection("users").InsertOne(ctx, u)
 	if err != nil {
 		return "", false, err
 	}

@@ -27,7 +27,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error creating a new user: "+err.Error(), http.StatusBadRequest)
 	}
 
-	if status != false {
+	if status == false {
 		http.Error(w, "User could not be created.: "+err.Error(), http.StatusBadRequest)
 	}
 

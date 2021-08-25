@@ -18,7 +18,7 @@ func UserAlreadyExists(email string) (models.User, bool, string) {
 	condition := bson.M{"email": email}
 	var result models.User
 
-	err := db.Conn.TweetorCollection("users").FindOne(ctx, condition).Decode(&result)
+	err := db.Conn.TweettorCollection("users").FindOne(ctx, condition).Decode(&result)
 	if err != nil {
 		return result, false, ""
 	}

@@ -46,6 +46,6 @@ func (c *MongoClient) CheckConnection() bool {
 }
 
 // TweetorCollection check if our app has connection with mongoDB
-func (c *MongoClient) TweetorCollection(collection string) *mongo.Collection {
-	return c.Client.Database("tweetor").Collection(collection)
+func (c *MongoClient) TweettorCollection(collection string) *mongo.Collection {
+	return c.Client.Database("tweettor").Collection(collection)
 }
