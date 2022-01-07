@@ -17,6 +17,7 @@ func Handlers() {
 
 	// Routes
 	router.HandleFunc("/sign_up", middlew.CheckConnection(routers.SignUp)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckConnection(routers.Login)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if (PORT) == "" {
