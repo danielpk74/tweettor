@@ -25,6 +25,7 @@ func Handlers() {
 
 	// Tweets
 	router.HandleFunc("/create_tweet", middlew.CheckConnection(middlew.ValidateJWT(routers.CreateTweet))).Methods(http.MethodPost)
+	router.HandleFunc("/get_tweets", middlew.CheckConnection(middlew.ValidateJWT(routers.GetTweets))).Methods(http.MethodGet)
 
 	PORT := os.Getenv("PORT")
 	if (PORT) == "" {
