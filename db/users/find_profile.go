@@ -11,7 +11,7 @@ import (
 )
 
 func FindProfile(ID string) (models.User, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 150*time.Second)
 	defer cancel()
 
 	usersCollection := db.Conn.TweettorCollection("users")
@@ -21,7 +21,7 @@ func FindProfile(ID string) (models.User, error) {
 
 	condition := bson.M{"_id": objID}
 
-	err := usersCollection.FindOne(ctx, condition).Decode(profile)
+	err := usersCollection.FindOne(ctx, condition).Decode(&profile)
 	profile.Password = ""
 	if err != nil {
 		fmt.Println("Record not found" + err.Error())

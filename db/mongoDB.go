@@ -9,7 +9,7 @@ import (
 
 // Conn MongoDB Connection instance.
 var Conn = newMongoClient()
-var clientOptions = options.Client().ApplyURI("mongodb+srv://book_user:book_user@cluster0.8yb8h.mongodb.net/books_store?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://book_user:book_user@cluster0.8yb8h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 type MongoClient struct {
 	Client *mongo.Client

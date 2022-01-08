@@ -12,7 +12,8 @@ import (
 Email
 IDUser
 */
-var Email, IDUser string
+var Email string
+var IDUser string
 
 //ProcessToken process a Token to get all values
 func ProcessToken(token string) (*models.Claim, bool, string, error) {
