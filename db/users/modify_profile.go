@@ -28,6 +28,10 @@ func ModifyProfile(u models.User, ID string) (bool, error) {
 		profile["birthDay"] = u.BirthDay
 	}
 
+	if len(u.Avatar) > 0 {
+		profile["avatar"] = u.Avatar
+	}
+
 	if len(u.Banner) > 0 {
 		profile["banner"] = u.Banner
 	}
