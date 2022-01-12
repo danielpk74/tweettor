@@ -15,8 +15,6 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 
-	// Routes
-
 	// Users
 	router.HandleFunc("/sign_up", middlew.CheckConnection(routers.SignUp)).Methods(http.MethodPost)
 	router.HandleFunc("/login", middlew.CheckConnection(routers.Login)).Methods(http.MethodPost)
@@ -33,6 +31,10 @@ func Handlers() {
 	router.HandleFunc("/upload_banner", middlew.CheckConnection(middlew.ValidateJWT(routers.UploadBanner))).Methods(http.MethodPost)
 	router.HandleFunc("/get_avatar", middlew.CheckConnection(routers.GetAvatar)).Methods(http.MethodGet)
 	router.HandleFunc("/get_banner", middlew.CheckConnection(routers.GetBanner)).Methods(http.MethodGet)
+
+	// Relationships
+	router.HandleFunc("/create_relationship", middlew.CheckConnection(middlew.ValidateJWT(routers.CreateRelationship))).Methods(http.MethodPost)
+	router.HandleFunc("/delete_relationship", middlew.CheckConnection(middlew.ValidateJWT(routers.DeleteRelationship))).Methods(http.MethodDelete)
 
 	PORT := os.Getenv("PORT")
 	if (PORT) == "" {
