@@ -20,11 +20,13 @@ func Handlers() {
 	router.HandleFunc("/login", middlew.CheckConnection(routers.Login)).Methods(http.MethodPost)
 	router.HandleFunc("/profile", middlew.CheckConnection(middlew.ValidateJWT(routers.ViewProfile))).Methods(http.MethodGet)
 	router.HandleFunc("/update_profile", middlew.CheckConnection(middlew.ValidateJWT(routers.UpdateProfile))).Methods(http.MethodPut)
+	router.HandleFunc("/get_all_users", middlew.CheckConnection(middlew.ValidateJWT(routers.GetAllUsers))).Methods(http.MethodGet)
 
 	// Tweets
 	router.HandleFunc("/create_tweet", middlew.CheckConnection(middlew.ValidateJWT(routers.CreateTweet))).Methods(http.MethodPost)
 	router.HandleFunc("/get_tweets", middlew.CheckConnection(middlew.ValidateJWT(routers.GetTweets))).Methods(http.MethodGet)
 	router.HandleFunc("/delete_tweet", middlew.CheckConnection(middlew.ValidateJWT(routers.DeleteTweet))).Methods(http.MethodDelete)
+	router.HandleFunc("/get_tweets_followers", middlew.CheckConnection(middlew.ValidateJWT(routers.GetTweetsFromFollowers))).Methods(http.MethodGet)
 
 	// Media
 	router.HandleFunc("/upload_avatar", middlew.CheckConnection(middlew.ValidateJWT(routers.UploadAvatar))).Methods(http.MethodPost)

@@ -21,7 +21,7 @@ func FindRelationship(r models.Relationship) (bool, error) {
 	var result models.Relationship
 
 	err := collection.FindOne(ctx, condition).Decode(&result)
-	if err != nil {
+	if err != nil || result.UserId == "" {
 		return false, err
 	}
 
